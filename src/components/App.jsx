@@ -27,7 +27,7 @@ class App extends React.Component {
           title,
           body,
           archived: false,
-          createdAt: new Date(),
+          createdAt: new Date().toISOString(),
         },
       ],
     }));
@@ -48,27 +48,28 @@ class App extends React.Component {
   }
 
   onSearch(event) {
-    const input = event.target.value;
-    if (input.trim() === '') {
-      this.setState({
-        notes: getInitialData(),
-        search: "",
-      });
-    } else {
-      this.setState((prevState) => ({
-        search: input,
-        notes: prevState.notes.filter(note => note.title.toLowerCase().includes(input.toLowerCase()))
-      }));
-    }
+    this.setState({
+      search: event.target.value,
+    });
   }
 
+  getFilteredNotes() {
+    const { notes, search } = this.state;
+    if (search.trim()) {
+      return notes.filter(note => note.title.toLowerCase().includes(search.toLowerCase()));
+    } else {
+      return notes;
+    }
+  };
+
   render() {
+    const filteredNotes = this.getFilteredNotes();
     return (
       <>
         <Header search={this.state.search} onSearch={this.onSearch} />
         <Body
-          archiveNotes={this.state.notes.filter(item => item.archived)}
-          notes={this.state.notes.filter(item => !item.archived)}
+          archiveNotes={filteredNotes.filter(item => item.archived)}
+          notes={filteredNotes.filter(item => !item.archived)}
           onToggleArchived={this.onToggleArchived}
           onDelete={this.onDelete}
           onAddNote={this.onAddNote}
