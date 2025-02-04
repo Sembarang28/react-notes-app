@@ -15,6 +15,7 @@ class App extends React.Component {
     this.onToggleArchived = this.onToggleArchived.bind(this);
     this.onDelete = this.onDelete.bind(this);
     this.onAddNote = this.onAddNote.bind(this);
+    this.onSearch = this.onSearch.bind(this);
   }
 
   onAddNote({ title, body }) {
@@ -46,10 +47,25 @@ class App extends React.Component {
     }));
   }
 
+  onSearch(event) {
+    const input = event.target.value;
+    if (input.trim() === '') {
+      this.setState({
+        notes: getInitialData(),
+        search: "",
+      });
+    } else {
+      this.setState((prevState) => ({
+        search: input,
+        notes: prevState.notes.filter(note => note.title.toLowerCase().includes(input.toLowerCase()))
+      }))
+    }
+  }
+
   render() {
     return (
       <>
-        <Header />
+        <Header search={this.state.search} onSearch={this.onSearch} />
         <Body
           archiveNotes={this.state.notes.filter(item => item.archived)}
           notes={this.state.notes.filter(item => !item.archived)}
