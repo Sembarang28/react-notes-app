@@ -4,14 +4,14 @@ import React from "react";
 import AddNotesForm from "./AddNotesForm";
 import NoteList from "./NoteList";
 
-function Body({ archiveNotes, notes, onAddNote, onArchive, onDelete }) {
+function Body({ archiveNotes, notes, onAddNote, onToggleArchived, onDelete }) {
   return (
     <div className="note-app__body">
       <AddNotesForm />
       <h2>Catatan Aktif</h2>
-      <NoteList notes={notes} onArchive={onArchive} onDelete={onDelete} />
+      <NoteList notes={notes} onToggleArchived={onToggleArchived} onDelete={onDelete} />
       <h2>Arsip</h2>
-      <NoteList notes={archiveNotes} onArchive={onArchive} onDelete={onDelete} />
+      <NoteList notes={archiveNotes} onToggleArchived={onToggleArchived} onDelete={onDelete} />
     </div>
   )
 }

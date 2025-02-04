@@ -2,8 +2,8 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 
-function ArchivedButton({ id, archived, onArchive }) {
-  return <button className="note-item__archive-button" onClick={() => onArchive(id)}>{archived ? "Pindahkan" : "Arsipkan"}</button>
+function ArchivedButton({ id, archived, onToggleArchived }) {
+  return <button className="note-item__archive-button" onClick={() => onToggleArchived(id)}>{archived ? "Pindahkan" : "Arsipkan"}</button>
 }
 
 export default ArchivedButton;
