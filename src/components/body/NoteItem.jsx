@@ -18,7 +18,7 @@ function NoteItem({ id, title, body, archived, createdAt, onDelete, onToggleArch
         <ArchivedButton id={id} archived={archived} onToggleArchived={onToggleArchived} />
       </div>
     </div>
-  )
+  );
 }
 
 export default NoteItem;

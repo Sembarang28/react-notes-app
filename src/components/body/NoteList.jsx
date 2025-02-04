@@ -13,9 +13,9 @@ function NoteList({ notes, onToggleArchived, onDelete }) {
           ))
         }
       </div>
-    )
+    );
   } else {
-    return <p className="notes-list__empty-message">Tidak ada catatan</p>
+    return <p className="notes-list__empty-message">Tidak ada catatan</p>;
   }
 }
 

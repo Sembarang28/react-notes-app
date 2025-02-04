@@ -10,7 +10,7 @@ class App extends React.Component {
     this.state = {
       notes: getInitialData(),
       search: "",
-    }
+    };
 
     this.onToggleArchived = this.onToggleArchived.bind(this);
     this.onDelete = this.onDelete.bind(this);
@@ -28,9 +28,9 @@ class App extends React.Component {
           body,
           archived: false,
           createdAt: new Date(),
-        }
-      ]
-    }))
+        },
+      ],
+    }));
   }
 
   onToggleArchived(id) {
@@ -58,7 +58,7 @@ class App extends React.Component {
       this.setState((prevState) => ({
         search: input,
         notes: prevState.notes.filter(note => note.title.toLowerCase().includes(input.toLowerCase()))
-      }))
+      }));
     }
   }
 

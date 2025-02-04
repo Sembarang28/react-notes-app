@@ -13,7 +13,7 @@ function Body({ archiveNotes, notes, onAddNote, onToggleArchived, onDelete }) {
       <h2>Arsip</h2>
       <NoteList notes={archiveNotes} onToggleArchived={onToggleArchived} onDelete={onDelete} />
     </div>
-  )
+  );
 }
 
 export default Body;

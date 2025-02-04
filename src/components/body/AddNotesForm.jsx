@@ -9,7 +9,7 @@ class AddNotesForm extends React.Component {
       title: '',
       body: '',
       titleCharRemaining: 50,
-    }
+    };
 
     this.onTitleChangeEventHandler = this.onTitleChangeEventHandler.bind(this);
     this.onBodyChangeEventHandler = this.onBodyChangeEventHandler.bind(this);
@@ -48,7 +48,7 @@ class AddNotesForm extends React.Component {
           <button type="submit">Buat</button>
         </form>
       </div>
-    )
+    );
   }
 }
 

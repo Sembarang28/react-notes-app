@@ -3,7 +3,7 @@
 import React from "react";
 
 function ArchivedButton({ id, archived, onToggleArchived }) {
-  return <button className="note-item__archive-button" onClick={() => onToggleArchived(id)}>{archived ? "Pindahkan" : "Arsipkan"}</button>
+  return <button className="note-item__archive-button" onClick={() => onToggleArchived(id)}>{archived ? "Pindahkan" : "Arsipkan"}</button>;
 }
 
 export default ArchivedButton;

@@ -7,7 +7,7 @@ function SearchInput({ search, onSearch }) {
     <div className="note-search">
       <input onChange={onSearch} value={search} placeholder="Cari catatan ..." />
     </div>
-  )
+  );
 }
 
 export default SearchInput;
