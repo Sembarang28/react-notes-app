@@ -14,6 +14,22 @@ class App extends React.Component {
 
     this.onToggleArchived = this.onToggleArchived.bind(this);
     this.onDelete = this.onDelete.bind(this);
+    this.onAddNote = this.onAddNote.bind(this);
+  }
+
+  onAddNote({ title, body }) {
+    this.setState((prevState) => ({
+      notes: [
+        ...prevState.notes,
+        {
+          id: +new Date(),
+          title,
+          body,
+          archived: false,
+          createdAt: new Date(),
+        }
+      ]
+    }))
   }
 
   onToggleArchived(id) {
@@ -39,6 +55,7 @@ class App extends React.Component {
           notes={this.state.notes.filter(item => !item.archived)}
           onToggleArchived={this.onToggleArchived}
           onDelete={this.onDelete}
+          onAddNote={this.onAddNote}
         />
       </>
     );
